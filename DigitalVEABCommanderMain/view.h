@@ -27,6 +27,14 @@ void InputToLCD(uint16_t data1, uint16_t data2, uint16_t mode){
   setRect(14, 10, 14+map(data1, 0, 4095, 0, 70), 16, 1, BLACK);
   setRect(14, 20, 14+map(data2, 0, 4095, 0, 70), 26, 1, BLACK);
 
+  if(mode == 1){
+    setStr("VEAB 1", 25, 30, BLACK);
+  }
+  if(mode == 2){
+    setStr("VEAB 2", 25, 30, BLACK);
+  }
+
+  
   //float x = 1.203;
   //char DataString3[10];
   //ftoa(x, DataString3, 10);
@@ -40,5 +48,5 @@ void setupLCD(){
   setContrast(60); // Good values range from 40-60
   clearDisplay(WHITE);
   updateDisplay();
-  InputToLCD(0, 4095, 1);
+  InputToLCD(2040, 2040, 1);
 }

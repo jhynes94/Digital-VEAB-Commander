@@ -15,8 +15,8 @@ Adafruit_ADS1015 ads1015;  //0x48
 class Model
 {
   public:
-   uint16_t VEAB1 = 0;
-   uint16_t VEAB2 = 0;
+   uint16_t VEAB1 = 10;
+   uint16_t VEAB2 = 10;
    uint16_t VEAB_MODE = 1;
 
    Model(){
@@ -32,6 +32,7 @@ class Model
     else if(VEAB_MODE == 2){
       VEAB_MODE = 1;
     }
+    InputToLCD(map(VEAB1, 0, 20, 0, 4095), map(VEAB2, 0, 20, 0, 4095), VEAB_MODE);
    }
    
    void incrementVEAB(){
